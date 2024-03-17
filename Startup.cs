@@ -4,8 +4,23 @@ namespace GitExercise
 {
     public class Startup
     {
+        public static bool CheckCredentials()
+        {
+            Console.WriteLine("Enter password to gain access: ");
+            string password = Console.ReadLine();
+            Console.Clear();
+            return password == Pass ;
+        }
+        private const string Pass = "abcd1234"; 
         public static void Main()
         {
+            bool isAuthorized = CheckCredentials();
+            if (!isAuthorized)
+            {
+                Console.WriteLine("Access Denied!");
+                Console.ReadKey(intercept:true);
+                return;
+            }
             Console.WriteLine("Console Calculator App");
             Console.WriteLine(new string('-', 15));
 
